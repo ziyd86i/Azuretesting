@@ -1,15 +1,14 @@
-const compression = require('compression');
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const apiRoutes = express.Router();
+// const apiRoutes = express.Router();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(compression());
+
 
 app.get('/', (req, res) => {
   res.send('<h1> Hello Node.js</h1>');
@@ -80,10 +79,7 @@ app.get('/getcalculate/:kilo', (req,res) => {
 
   res.json({sum: sum})
 
-
-
 })
-
 
 server.listen(3000, () => {
   console.log('Express server is lisening on port 3000');
